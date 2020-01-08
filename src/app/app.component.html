@@ -1,0 +1,58 @@
+<div class="container-fluid">
+
+  
+
+    <label><h2>Application Form</h2></label>
+  
+      <form #userform="ngForm">
+
+            {{userform.value | json}}<br>
+            {{UserModel | json}}
+
+          <div class="form-group">
+            <label>Name</label>
+            
+
+            <input type="text" class="form-control" [(ngModel)]="UserModel.name" name="username">
+          </div>
+
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" #email class="form-control" [(ngModel)]="UserModel.email" name="email">
+          </div>
+
+          {{email.className}}
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" class="form-control"  [(ngModel)]="UserModel.Phone" name="Phone">
+          </div>
+
+          <div class="form-group">
+          <select class="custom-select" name="topic"[(ngModel)]="UserModel.topic">
+            <option value="">I'm Interested in</option>
+            <option *ngFor="let topic of topics">{{ topic }}</option>
+          </select>
+          </div>
+
+          <div class="radio">
+            <label class="Time">Time Preference</label>
+              
+              <div class="r1">
+                <input type="radio" value="morning" name="time-preference"[(ngModel)]="UserModel.time-preference ">
+                <label class="radio1">Morning(9-12AM)</label>
+              </div>
+              <div class="r1">
+                <input type="radio" value="evening" name="time-preference"[(ngModel)]="UserModel.time-preference">
+                <label class="radio1">Evening(1-5PM)</label>
+              </div>
+
+          </div>
+          
+          <div class="btn">
+            <button class="btn btn-primary " (click)="box()">Submit</button>
+          </div>
+
+      </form>
+</div>
+<router-outlet></router-outlet>
